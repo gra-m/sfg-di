@@ -4,7 +4,10 @@ import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+// override default, sure look here, but, look here too.
+@ComponentScan(basePackages = {"guru.springframework.sfgdi", "fun.madeby.pets"})
 @SpringBootApplication
 public class SfgDiApplication {
 
