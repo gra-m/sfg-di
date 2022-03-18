@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 // override default, sure look here, but, look here too.
-@ComponentScan(basePackages = {"guru.springframework.sfgdi", "fun.madeby.pets"})
+//@ComponentScan(basePackages = {"guru.springframework.sfgdi", "fun.madeby.pets this is now in config as 3P jar"})
 @SpringBootApplication
 public class SfgDiApplication {
 

@@ -1,5 +1,9 @@
 package guru.springframework.sfgdi.config;
 
+import fun.madeby.pets.CatPetService;
+import fun.madeby.pets.DogPetService;
+import fun.madeby.pets.PetService;
+import fun.madeby.pets.PetServiceFactory;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
@@ -17,6 +21,25 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+// Bringing in 3rd P Jar PetServiceFactory..
+
+    @Bean
+    PetServiceFactory petServiceFactory(){
+        return new PetServiceFactory();
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(){
+       return petServiceFactory().getPetService("cat");
+    }
+
+    @Profile("dog")
+    @Bean
+    PetService dogPetService(){
+        return petServiceFactory().getPetService("dog");
+    }
 
     @Primary
     @Bean
@@ -41,7 +64,6 @@ public class GreetingServiceConfig {
     I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository) {
         return new I18nEnglishGreetingService(englishGreetingRepository);
     }
-
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {
