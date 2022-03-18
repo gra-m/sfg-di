@@ -1,16 +1,39 @@
 package guru.springframework.sfgdi.config;
 
-import guru.springframework.sfgdi.services.ConstructorGreetingService;
-import guru.springframework.sfgdi.services.PropertyInjectedGreetingService;
-import guru.springframework.sfgdi.services.SetterInjectedGreetingService;
+import guru.springframework.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 /**
  * Created by Gra_m on 2022 03 18
+ *
+ * Instead of using annotations (slow on startup for large projects with many annotations)
+ * a config file can be used:)
  */
+
 @Configuration
 public class GreetingServiceConfig {
+
+    @Primary
+    @Bean
+    PrimaryGreetingService primaryGreetingService() {
+        return new PrimaryGreetingService();
+    }
+
+    @Profile("ES")
+    @Bean("i18nService")
+    I18NSpanishService i18NSpanishService() {
+        return new I18NSpanishService();
+    }
+
+    @Profile("EN")
+    @Bean
+    I18nEnglishGreetingService i18nService() {
+        return new I18nEnglishGreetingService();
+    }
+
 
     // Trad use case == working with 3rd party component
     @Bean
