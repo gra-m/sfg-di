@@ -1,5 +1,7 @@
 package guru.springframework.sfgdi.config;
 
+import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
+import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,20 +30,25 @@ public class GreetingServiceConfig {
         return new I18NSpanishService();
     }
 
-    @Profile("EN")
     @Bean
-    I18nEnglishGreetingService i18nService() {
-        return new I18nEnglishGreetingService();
+    EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
     }
 
 
-    // Trad use case == working with 3rd party component
+    @Profile("EN")
+    @Bean // this bean depends on the above spring is smart and makes the above first.
+    I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
+    }
+
+
     @Bean
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
 
-    @Bean // bean name == method name below
+    @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService() {
         return new PropertyInjectedGreetingService();
     }
