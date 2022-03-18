@@ -65,10 +65,11 @@ public class GreetingServiceConfig {
         return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
-    @Bean
+    //Move to xml
+    /*@Bean
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
-    }
+    }*/
 
     @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService() {

@@ -5,9 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 
 // override default, sure look here, but, look here too.
 //@ComponentScan(basePackages = {"guru.springframework.sfgdi", "fun.madeby.pets this is now in config as 3P jar"})
+@ImportResource("classpath:sfgdi-config.xml")
 @SpringBootApplication
 public class SfgDiApplication {
 
