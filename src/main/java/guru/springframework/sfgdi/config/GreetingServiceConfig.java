@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * Created by Gra_m on 2022 03 18
  */
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:datasource.properties") ==> SpringFramework requirement just put in application properties with Boot.
 @Configuration
 public class GreetingServiceConfig {
 
