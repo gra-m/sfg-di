@@ -3,7 +3,7 @@ spring:
     active:
       - cat
       - EN
-      - qa
+      - prod
 fun:
   username: YML_DEFAULT_UserName
   password: YML_DEFAULT_Password
