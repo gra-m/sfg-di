@@ -1,9 +1,38 @@
 spring:
   profiles:
-    active: cat,EN, qa
+    active:
+      - cat
+      - EN
+      - dev
 fun:
   username: YML_DEFAULT_UserName
   password: YML_DEFAULT_Password
   urlToDBSource: YML_DEFAULT_URL_TO_DB
 
+--- #PROD
+spring:
+  profiles: prod
+fun:
+   username: YML_PROD_USERNAME
+   password: YML_PROD_PASSWORD
+   urlToDBSource: YML_PROD_URL_TO_DEV_DB
+...
+
+--- #QA
+spring:
+  profiles: qa
+fun:
+  username: YML_QA_USERNAME
+  password: YML_QA_PASSWORD
+  urlToDBSource: YML_QA_URL_TO_DEV_DB
+...
+
+
+--- #DEV
+spring:
+  profiles: dev
+fun:
+  username: YML_DEV_USERNAME
+  password: YML_DEV_PASSWORD
+  urlToDBSource: YML_DEV_URL_TO_DEV_DB
 

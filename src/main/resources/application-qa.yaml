@@ -1,5 +1,0 @@
-fun:
-    username: YML_QA_USERNAME
-    password: YML_QA_PASSWORD
-    urlToDBSource: YML_QA_URL_TO_DEV_DB
-
