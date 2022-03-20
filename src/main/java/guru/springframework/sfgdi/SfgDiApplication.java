@@ -38,10 +38,25 @@ public class SfgDiApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 
+		System.out.println("--------------------->FAKE DATA SOURCE");
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		System.out.println("----------------------------------------");
 		System.out.println(fakeDataSource.getUserName() + " " + fakeDataSource.getPassword() + " " + fakeDataSource.getUrlToDBSource());
 		System.out.println("----------------------------------------");
+
+		System.out.println("--------------------->CONFIG PROPERTIES left in but the below is being used in GSC config");
+		ConfigProperties configProperties = ctx.getBean(ConfigProperties.class);
+		System.out.println(configProperties.getPassword());
+		System.out.println(configProperties.getUserName());
+		System.out.println(configProperties.getUserName());
+
+		System.out.println("--------------------->CONSTRUCTOR BINDING SaferConstructorConfig ..");
+		SaferConstructorConfig saferConstructorConfig = ctx.getBean(SaferConstructorConfig.class);
+		System.out.println(saferConstructorConfig.getPassword());
+		System.out.println(saferConstructorConfig.getUserName());
+		System.out.println(saferConstructorConfig.getUserName());
+
+
 	}
 
 }
