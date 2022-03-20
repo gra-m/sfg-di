@@ -1,9 +1,9 @@
 spring:
   profiles:
-    active: cat, EN, qa
+    active: cat,EN, qa
 fun:
-  username: YML_BasicUserName
-  password: YML_Password
-  urlToDBSource: YML_URL_TO_DB
+  username: YML_DEFAULT_UserName
+  password: YML_DEFAULT_Password
+  urlToDBSource: YML_DEFAULT_URL_TO_DB
 
 
