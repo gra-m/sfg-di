@@ -38,10 +38,18 @@ public class SfgDiApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 
+		System.out.println("--------------------->FAKE DATA SOURCE");
 		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
 		System.out.println("----------------------------------------");
 		System.out.println(fakeDataSource.getUserName() + " " + fakeDataSource.getPassword() + " " + fakeDataSource.getUrlToDBSource());
 		System.out.println("----------------------------------------");
+
+		System.out.println("--------------------->CONFIG PROPERTIES reassure yourself what is running on start..");
+		ConfigProperties configProperties = ctx.getBean(ConfigProperties.class);
+		System.out.println(configProperties.getPassword());
+		System.out.println(configProperties.getUserName());
+		System.out.println(configProperties.getUserName());
+
 	}
 
 }

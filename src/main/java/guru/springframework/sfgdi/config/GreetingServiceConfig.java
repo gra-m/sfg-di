@@ -1,5 +1,6 @@
 package guru.springframework.sfgdi.config;
 
+import guru.springframework.sfgdi.ConfigProperties;
 import guru.springframework.sfgdi.FakeDataSource;
 import guru.springframework.sfgdi.services.ConstructorGreetingService;
 import guru.springframework.sfgdi.services.PropertyInjectedGreetingService;
@@ -16,12 +17,14 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 public class GreetingServiceConfig {
 
-    //
     @Bean
-    FakeDataSource fakeDataSource(@Value("${fun.username}")String username,
-                                  @Value("${fun.password}") String password,
-                                  @Value("${fun.urlToDBSource}") String urlToDBSource) {
-        return new FakeDataSource(username, password, urlToDBSource);
+    FakeDataSource fakeDataSource(ConfigProperties configProperties)  {
+        FakeDataSource fake = new FakeDataSource();
+        fake.setUserName(configProperties.getUserName());
+        fake.setPassword(configProperties.getPassword());
+        fake.setUrlToDBSource(configProperties.getUrlToDBSource());
+
+        return fake;
     }
 
 

@@ -1,23 +1,24 @@
 package guru.springframework.sfgdi;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
 /**
- * Created by Gra_m on 2022 03 19
+ * Created by Gra_m on 2022 03 20
+ *  had to add this to the pom
+ * <dependency>
+ *     <groupId>org.springframework.boot</groupId>
+ *     <artifactId>spring-boot-configuration-processor</artifactId>
+ *     <optional>true</optional>
+ * </dependency
  */
 
-public class FakeDataSource {
+@ConfigurationProperties("fun")
+@Configuration
+public class ConfigProperties {
     private String userName;
     private String password;
     private String urlToDBSource;
-
-    public FakeDataSource() {
-    }
-
-    public FakeDataSource(String userName, String password, String urlToDBSource) {
-        this.userName = userName;
-        this.password = password;
-        this.urlToDBSource = urlToDBSource;
-    }
-
 
     public String getUserName() {
         return userName;
