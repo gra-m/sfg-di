@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: cat, EN, qa
+fun:
+  username: YML_BasicUserName
+  password: YML_Password
+  urlToDBSource: YML_URL_TO_DB
+
+
